@@ -1,0 +1,103 @@
+<?php
+    $configValue = Mage::getStoreConfig('elitrack/elitrack/elitrack_api_fld');
+
+    $cust_enable=Mage::getStoreConfig('elitrack/elitrack/elitrack_custid_fld');
+
+    $custid='';
+    $total='';
+
+     if($cust_enable=='1')
+     {
+		    if(Mage::getSingleton('customer/session')->isLoggedIn()) 
+		    {
+		      $customerData = Mage::getSingleton('customer/session')->getCustomer();
+		     // print_r($customerData);
+		      $cust_id=$customerData->getId();
+		      if(!empty($customerData))
+		      {
+		      	$custid= md5($cust_id);
+		      }
+		      
+		 	}
+	 }
+	if($configValue!='')
+	{
+		$lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+    		$order = Mage::getSingleton('sales/order');
+    		$order->load($lastOrderId);
+		if($cust_id>0)
+		{
+			$orderCollection = Mage::getModel("sales/order")->getCollection()->addFieldToFilter('customer_id',$cust_id)->addFieldToSelect('*');
+			$count_ord=count($orderCollection);
+			if($count_ord>1)
+			{
+				$new='0';
+			}
+			else
+			{
+				$new='1';
+			}
+		}
+		else
+		{
+			$cust_email=$order->getCustomerEmail();
+			$orderCollection = Mage::getModel("sales/order")->getCollection()->addFieldToFilter('customer_email',$cust_email)->addFieldToSelect('*');
+			$count_ord=count($orderCollection);
+			if($count_ord>1)
+			{
+				$new='0';
+			}
+			else
+			{
+				$new='1';
+			}
+
+		}
+		
+    		
+    		$allitems = $order->getAllItems();
+ 			$prolist='';
+ 			$i=1;
+
+ 			$count=count($allitems);
+			foreach ($allitems as $item)
+			{
+				$sku=$item->getSku();
+				if(trim($sku)!=trim($old_sku))
+				{
+					//echo trim($old_sku).'<br>';
+					$productName = $item->getName();
+						$proId = $item->getProductId();
+						$productPrice = $item->getPrice();
+						$qty = $item->getQtyOrdered();
+	   		 			$proprice=$qty*$productPrice;
+						$total=$total+$proprice;
+						//echo $item->getSku().'-'.$qty.'<br>';
+						if($i==$count)
+						{
+						$prolist.=$proId.':'.$proprice.':'.$productPrice;
+						}		
+						else
+						{
+					$prolist.=$proId.':'.$proprice.':'.$productPrice.';';
+						}
+						$old_sku=$sku;		
+
+				}			  
+				
+				$i++;
+			}
+			$str='<script type="text/javascript">
+		(function() {
+		var script = document.createElement("script");
+		script.type = "text\/javascript";
+		script.charset = "UTF-8";
+		script.async = "async";
+		script.defer = "defer";
+		script.src = ("https:" == document.location.protocol ? "https": "http")+"://tck.elitrack.com/tag?page=transaction&aid='.$configValue.'&cid='.$custid.'&new='.$new.'&reference='.$lastOrderId.'&products='.$prolist.'&totalPrice='.$total.'";document.getElementsByTagName("head")[0].appendChild(script);
+		})();
+		</script>';
+		echo $str;
+	}
+
+?>

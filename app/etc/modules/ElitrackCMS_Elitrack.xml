@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <ElitrackCMS_Elitrack>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </ElitrackCMS_Elitrack>
+  </modules>
+</config>

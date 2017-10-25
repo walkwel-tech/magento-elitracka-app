@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+   <default>
+	    <reference name="before_body_end">
+	      <block type="elitrack/eother" name="elitrack.eother" template="elitrack/eother.phtml"/>   
+	    </reference>
+    </default> 
+   <cms_index_index>
+	    <reference name="before_body_end">
+	      <block type="elitrack/index" name="elitrack.index" template="elitrack/index.phtml"/>
+	      <remove name="elitrack.eother" />
+	    </reference>
+    </cms_index_index>
+    <catalog_category_view>
+    	<reference name="before_body_end">   
+	      <block type="elitrack/ecat" name="elitrack.ecat" template="elitrack/ecat.phtml"/>
+	      <remove name="elitrack.eother" />
+	    </reference>
+    </catalog_category_view>
+    <catalog_product_view>
+    	<reference name="before_body_end">   
+	      <block type="elitrack/epro" name="elitrack.epro" template="elitrack/epro.phtml"/>
+	      <remove name="elitrack.eother" />
+	    </reference>
+    </catalog_product_view>
+    <checkout_cart_index>
+    	<reference name="before_body_end">   
+	      <block type="elitrack/ecart" name="elitrack.ecart" template="elitrack/ecart.phtml"/>  
+	      <remove name="elitrack.eother" />  
+	    </reference>
+    </checkout_cart_index>
+    <checkout_onepage_success>
+    	<reference name="before_body_end">   
+	      <block type="elitrack/esuccess" name="elitrack.esuccess" template="elitrack/esuccess.phtml"/> 
+	      <remove name="elitrack.eother" />   
+	    </reference>
+    </checkout_onepage_success>
+    
+</layout>   
+	

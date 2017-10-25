@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>ElitrackCMS</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Eli track is a system to track website traff</summary>
+    <description>Eli track is a system to track website traff</description>
+    <notes>Eli track is a system to track website traff</notes>
+    <authors><author><name>elitrack</name><user>elitrack</user><email>elitrack@gmail.com</email></author></authors>
+    <date>2017-01-06</date>
+    <time>04:53:45</time>
+    <contents><target name="magelocal"><dir name="ElitrackCMS"><dir name="Elitrack"><dir name="Block"><file name="Ecart.php" hash="855e9482de02dd53f9b88059a45bc2aa"/><file name="Ecat.php" hash="0e2b04e0dfa526756d59225d5a01d5d7"/><file name="Eother.php" hash="66549173dc8ea613ab1b42a7cf51e680"/><file name="Epro.php" hash="fe3bebf383176af796f88506bbf78acb"/><file name="Esuccess.php" hash="28cb7777781e947a4893d5485880347b"/><file name="Index.php" hash="6f49bbe779f4abcfdc9172991d3f1312"/></dir><dir name="Helper"><file name="Data.php" hash="e3e8c527a544b01ac3babed58afa0cb1"/></dir><dir name="Model"><file name="Comment.php" hash="592e1682e307e2fd64bc2345c0ba0e1d"/><dir name="Field"><file name="Comment.php" hash="3f07b0f784bb1e3488e2c35fcd63f616"/></dir></dir><dir name="controllers"><file name="IndexController.php" hash="63305520abd27fd21b9b5a9dafcc012c"/></dir><dir name="etc"><file name="adminhtml.xml" hash="dd0cbdc67842750cd92b42ae18083645"/><file name="config.xml" hash="28747338d36c3907c1a6431ac1efa46d"/><file name="system.xml" hash="ebac48065943a7afbebbb657bb1e048c"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="ElitrackCMS_Elitrack.xml" hash="1bb9b7b9d0ad5207d3c2d610bce02435"/></dir></target><target name="magemedia"><dir name="elitrack"><file name="logo.png" hash="9fa63a025af57cc20467b0006c078f87"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="elitrack.xml" hash="b8b2eb27f4fbf0d283b46b9769c0f4c0"/></dir><dir name="template"><dir name="elitrack"><file name="ecart.phtml" hash="9e66254d317b19dc3476a67af4df63e8"/><file name="ecat.phtml" hash="e5da90cd749ba8219b87168ff5218b2c"/><file name="eother.phtml" hash="f7b2cee37d3e95540c89f95078cbe70a"/><file name="epro.phtml" hash="124764dafeeba9e8e568b85c79942e18"/><file name="esuccess.phtml" hash="a361d27371d22593d7169b15985a967a"/><file name="index.phtml" hash="d0d07deb692d5d07f8cb2e453663f868"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.4.41</min><max>5.6.27</max></php></required></dependencies>
+</package>
